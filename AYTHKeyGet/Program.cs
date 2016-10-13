@@ -13,7 +13,7 @@ namespace AYTHKeyGet
     {
         static void Main(string[] args)
         {
-            const string playerURL = "http://radiko.jp/player/swf/player_4.0.0.00.swf";
+            const string playerURL = "http://radiko.jp/apps/js/flash/myplayer-release.swf";
             const string auth1URL = "https://radiko.jp/v2/api/auth1_fms";
             const string auth2URL = "https://radiko.jp/v2/api/auth2_fms";
             string appPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location); // application path
@@ -70,7 +70,7 @@ namespace AYTHKeyGet
             }
 
             // Build command and run
-            string parameterString = "-b 14 " + swfFile + " -o " + pngFile;
+            string parameterString = "-b 12 " + swfFile + " -o " + pngFile;
             Console.WriteLine("Command Parameter for tool: {0}", parameterString);
             try
             {
@@ -91,8 +91,8 @@ namespace AYTHKeyGet
             // Build request
             req = (System.Net.HttpWebRequest)WebRequest.Create(auth1URL);
             req.Headers.Add("pragma: no-cache");
-            req.Headers.Add("X-Radiko-App: pc_1");
-            req.Headers.Add("X-Radiko-App-Version: 2.0.1");
+            req.Headers.Add("X-Radiko-App: pc_ts");
+            req.Headers.Add("X-Radiko-App-Version: 4.0.0");
             req.Headers.Add("X-Radiko-User: test-stream");
             req.Headers.Add("X-Radiko-Device: pc");
             req.Method = "POST";
@@ -191,8 +191,8 @@ namespace AYTHKeyGet
             // Build request
             req = (System.Net.HttpWebRequest)WebRequest.Create(auth2URL);
             req.Headers.Add("pragma: no-cache");
-            req.Headers.Add("X-Radiko-App: pc_1");
-            req.Headers.Add("X-Radiko-App-Version: 2.0.1");
+            req.Headers.Add("X-Radiko-App: pc_ts");
+            req.Headers.Add("X-Radiko-App-Version: 4.0.0");
             req.Headers.Add("X-Radiko-User: test-stream");
             req.Headers.Add("X-Radiko-Device: pc");
             req.Headers.Add("X-Radiko-AuthToken: " + authToken);
